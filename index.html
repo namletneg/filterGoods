@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ajax读取数据测试</title>
+    <link type="text/css" rel="stylesheet" href="static/css/pro-goods-list.css">
+</head>
+<body>
+<div class="container">
+<div class="classify">
+    <div class="filter hide"></div>
+    <dl>
+        <dt>分类：</dt>
+        <dd>
+            <a class="drop-down r" title="更多" href="javascript:;"><i class="icon-drop-down"></i></a>
+            <ul>
+                <li><a id="Type3" href="javascript:;">滚珠</a></li>
+                <li><a id="Type4" href="javascript:;">圆珠</a></li>
+                <li><a id="Type5" href="javascript:;">直线轴承</a></li>
+                <li><a id="Type6" href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+                <li><a href="javascript:;">平面轴承</a></li>
+                <li><a href="javascript:;">滚珠</a></li>
+                <li><a href="javascript:;">圆珠</a></li>
+                <li><a href="javascript:;">直线轴承</a></li>
+            </ul>
+        </dd>
+    </dl>
+    <dl>
+        <dt>品牌：</dt>
+        <dd>
+            <a class="drop-down r" title="更多" href="javascript:;"><i class="icon-drop-down"></i></a>
+            <ul>
+                <li><a id="SKF" href="javascript:;">SKF</a></li>
+                <li><a id="BL" href="javascript:;">BL</a></li>
+                <li><a id="BOT" href="javascript:;">BOT</a></li>
+                <li><a id="BYC洛阳博盈" href="javascript:;">BYC洛阳博盈</a></li>
+                <li><a id="KOYO/光洋" href="javascript:;">KOYO/光洋</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+                <li><a href="javascript:;">SKF</a></li>
+            </ul>
+        </dd>
+    </dl>
+</div>
+<div class="floor">
+<div class="wd790 l">
+<div class="piece" id="hot">
+    <h4><a class="r" id="MORE-1" title="更多" href="javascript:;">MORE</a>热销产品</h4>
+    <ul class="goods-list wd236" id="hot-list">
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p class="red-font">已售：500个</p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p class="red-font">已售：500个</p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p class="red-font">已售：500个</p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p class="red-font">已售：500个</p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p class="red-font">已售：500个</p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p class="red-font">已售：500个</p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="piece" id="new">
+    <h4><a class="r"id="MORE-2" title="更多" href="javascript:;">MORE</a>最新产品</h4>
+    <ul class="goods-list row3" id="new-list">
+        <li>
+            <a class="wrap" href="#">
+                <i class="icon-newgoods2"></i>
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <i class="icon-newgoods2"></i>
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <i class="icon-newgoods2"></i>
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="piece" id="all">
+    <h4><a class="r" id="MORE-3" title="更多" href="javascript:;">MORE</a>所有产品</h4>
+    <div class="sort">
+        <div class="r">
+            <div class="search-small">
+                <input type="text">
+                <i class="icon-search-small"></i>
+            </div>
+            <input name="Button1" class="btn btn-small" id="Button1" type="submit" value="搜  索"/>
+        </div>
+        <div class="l">
+            排序：
+            <input id="Button2" type="button" value="默认">
+            <input id="Button3" type="button" value="销量">
+            <input id="Button4" type="button" value="发布时间">
+            <input id="Button5" type="button" value="价格">
+        </div>
+    </div>
+    <ul class="goods-list"  id="goods-list">
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/3.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="wrap" href="#">
+                <div class="wrap-img">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="inner">
+                    <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                    <p><strong>￥3.8/个</strong></p>
+                    <p>轴承有限公司</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div class="text-center pt20 pr20 hide" id="pagination">
+    </div>
+</div>
+</div>
+<div class="wd180 l">
+    <div class="side-right">
+        <h4>热门推荐</h4>
+        <ul class="goods-list wd148">
+            <li>
+                <a class="wrap" href="#">
+                    <div class="wrap-img">
+                        <img src="static/img/1.jpg">
+                    </div>
+                    <div class="inner">
+                        <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                        <p><strong>￥3.8/个</strong></p>
+                        <p>轴承有限公司</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="wrap" href="#">
+                    <div class="wrap-img">
+                        <img src="static/img/1.jpg">
+                    </div>
+                    <div class="inner">
+                        <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                        <p><strong>￥3.8/个</strong></p>
+                        <p>轴承有限公司</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="wrap" href="#">
+                    <div class="wrap-img">
+                        <img src="static/img/1.jpg">
+                    </div>
+                    <div class="inner">
+                        <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                        <p><strong>￥3.8/个</strong></p>
+                        <p>轴承有限公司</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="wrap" href="#">
+                    <div class="wrap-img">
+                        <img src="static/img/1.jpg">
+                    </div>
+                    <div class="inner">
+                        <p><strong>深沟sssssssssssssssssssssss球轴承</strong></p>
+                        <p><strong>￥3.8/个</strong></p>
+                        <p>轴承有限公司</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">
+            <a class="btn" href="#">查看更多宝贝</a>
+        </p>
+    </div>
+    <div class="side-right">
+        <h4>热门搜索</h4>
+        <div class="digg">
+            <p class="title">
+                <em class="r">搜索量</em>
+                <em>关键词</em>
+            </p>
+            <p><em class="r">3000次</em><em>1.SKF</em></p>
+            <p><em class="r">3000次</em><em>2.SKF</em></p>
+            <p><em class="r">3000次</em><em>3.SKF</em></p>
+            <p><em class="r">3000次</em><em>4.SKF</em></p>
+            <p><em class="r">3000次</em><em>5.SKF</em></p>
+            <p><em class="r">3000次</em><em>6.SKF</em></p>
+            <p><em class="r">3000次</em><em>7.SKF</em></p>
+            <p><em class="r">3000次</em><em>8.SKF</em></p>
+            <p><em class="r">3000次</em><em>9.SKF</em></p>
+            <p><em class="r">3000次</em><em>10.SKF</em></p>
+            <p><em class="r">3000次</em><em>11.SKF</em></p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script src="static/js/jquery-1.11.1.min.js"></script>
+<script src="static/js/dataAjax.js"></script>
+</body>
+</html>
