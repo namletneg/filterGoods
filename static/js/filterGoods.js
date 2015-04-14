@@ -10,6 +10,7 @@ function FilterGoods(obj){
     this.pageNum = obj.pageNum || 7;   //显示页码数
     this.pageRange = obj.pageRange || 12;    //显示页码范围，默认12页， 超过压缩页码
     this.description = obj.description;  //种类
+    this.url = obj.url;     //请求数据地址
 
     this.init();
 }
@@ -105,7 +106,7 @@ FilterGoods.prototype = {
         $.ajax({
             type: 'post',
             dataType: 'json',
-            url: 'static/js/test.json',
+            url: that.url,
             data: conf,
             success: function(json){
                 if(typeof  json === 'object'){
@@ -230,5 +231,6 @@ var filterGoods = new FilterGoods({
     description: {
         'id': '分类',
         'name': '品牌'
-    }
+    },
+    url: 'static/js/test.json'    //请求数据地址
 });
