@@ -4,9 +4,12 @@
 function FilterGoods(obj){
     this.putGoodsDiv = obj.putGoodsDiv;  //列表容器
     this.filerDiv = obj.filerDiv;    //过滤容器
+    this.clickItems = obj.clickItems;
+    this.dataNum = obj.dataNum || 20;   //显示数据数
     this.pagination = obj.pagination || null;  //页码容器
-    this.pageNum = obj.pageNum;   //显示条数
+    this.pageNum = obj.pageNum || 7;   //显示页码数
     this.pageRange = obj.pageRange || 12;    //显示页码范围，默认12页， 超过压缩页码
+    this.description = obj.description;  //种类
 
     this.init();
 }
@@ -18,16 +21,17 @@ FilterGoods.prototype = {
     init: function(){
         var that = this;
 
-        $('.classify').on('click','ul li a', function(){
+        $(that.clickItems).on('click', function(){
             var $filerDiv = $(that.filerDiv),
                 $filerItems = $filerDiv.children(),
                 obj = {};
 
             obj.dataId = this.id;
             obj.classifiy = $(this).data('classify');
-            obj.classifyText = $(this).parents('dl').find('dt').text().slice(0,2);
+            obj.classifyText = that.description[obj.classifiy];
             obj.text = $(this).text();
 
+            //论封装，这段代码不太好
             $(this).toggleClass('active').parent().siblings().find('a').removeClass('active'); //增删 a 的样式
             //判断是增加过滤条件还是删除过滤条件
             if(this.className){
@@ -94,7 +98,7 @@ FilterGoods.prototype = {
         var that = this,
             $filerDiv = $(that.filerDiv),
             conf = that.conf,
-            pageNum = that.pageNum,
+            dataNum = that.dataNum,
             pageTotality;     //总数
 
         that.getData($filerDiv.children());  //获取传送参数
@@ -105,7 +109,7 @@ FilterGoods.prototype = {
             data: conf,
             success: function(json){
                 if(typeof  json === 'object'){
-                    that.addList(json,pageNum);
+                    that.addList(json,dataNum);
                     if(that.pagination !== null){
                         pageTotality = +json.totality;   //将列表总数 string 换位 int
                         that.addPagination(page, pageTotality);
@@ -145,8 +149,10 @@ FilterGoods.prototype = {
     //*************** 添加页码 ********************
     addPagination: function(page, pageTotality){
         var that = this,
+            pageRange = that.pageRange,
+            pageNum = that.pageNum,
             $pagination = $(that.pagination),
-            pageSize = Math.ceil(pageTotality / this.pageNum),
+            pageSize = Math.ceil(pageTotality / this.dataNum),
             aDom = [],
             addDom = function(start, end, index){
                 var dom ='';
@@ -162,18 +168,20 @@ FilterGoods.prototype = {
             };
 
         aDom.push('<div class="pagination"><a class="pre" href="javascript:;">上一页</a>');
-        if(pageSize <= that.pageRange){
+        if(pageSize <= pageRange){
             aDom.push(addDom(1, pageSize, page));
         } else{           //超过设定的页码范围，压缩页码在
-            if(page <= 7){                 //后面加 "..."
-                aDom.push(addDom(1,11,page));
-                aDom.push('<span>...</span><a class="go-page" href="javascript:;">' + pageSize + '</a>');
-            } else if(pageSize - page < 5){          //前面加 "..."
+            if(page < pageNum){                 //后面加 "..."
+                //判断显示页码数是否超过总页码数，超过将全部显示页码
+                pageNum = pageSize <= pageNum ? pageSize : pageNum;
+                aDom.push(addDom(1,pageNum,page));
+                (pageNum !== pageSize)&&(aDom.push('<span>...</span><a class="go-page" href="javascript:;">' + pageSize + '</a>'));
+            } else if(pageSize - page + 1 < pageNum){          //前面加 "..."
                 aDom.push('<a class="go-page" href="javascript:;">1</a><span>...</span>');
-                aDom.push(addDom(pageSize - 10,pageSize,page));
+                aDom.push(addDom(pageSize - pageNum + 1,pageSize,page));
             } else{
                 aDom.push('<a class="go-page" href="javascript:;">1</a><span>...</span>');
-                aDom.push(addDom(page -5,Number(page) + 3,page));
+                aDom.push(addDom(page - parseInt(pageNum / 2),page + parseInt(pageNum / 2),page));
                 aDom.push('<span>...</span><a class="go-page" href="javascript:;">' + pageSize + '</a>');
             }
         }
@@ -195,11 +203,9 @@ FilterGoods.prototype = {
             flag = true,
             sCal;   //存放过滤的条件， 如 分类 品牌
 
-
-
         $items.each(function(index){
             //判断 item 是否存在
-            sCal = $(this).find('label').text().slice(0,2);
+            sCal = that.description[$(this).data('classify')];  //去得 筛选条件 的text
             if(sCal === obj.classifyText){
                 //替换掉筛选的条件
                 $(sDom).replaceAll(this);
@@ -214,8 +220,15 @@ FilterGoods.prototype = {
     }
 };
 var filterGoods = new FilterGoods({
-    putGoodsDiv: '#goods-list',
-    filerDiv: '.filter',
-    pagination: '#pagination',
-    pageNum: '20'
+    putGoodsDiv: '#goods-list',  // 显示数据容器
+    filerDiv: '.filter',        // 存放过滤条件容器
+    pagination: '#pagination',  //显示页码
+    clickItems: '.classify ul a',    //绑定 click
+    dataNum: '20',       // 条数，默认20条
+    pageRange: '10',       //页码范围，超过用 ... 压缩，默认12
+    pageNum: '6',         //显示页码数，默认 7
+    description: {
+        'id': '分类',
+        'name': '品牌'
+    }
 });
