@@ -7,6 +7,8 @@ function FilterGoods(obj){
     this.pagination = obj.pagination || null;  //页码容器
     this.pageNum = obj.pageNum;   //显示条数
     this.pageRange = obj.pageRange || 12;    //显示页码范围，默认12页， 超过压缩页码
+
+    this.init();
 }
 FilterGoods.prototype = {
     constructor: FilterGoods,
@@ -14,20 +16,31 @@ FilterGoods.prototype = {
         sID : '',
         sName : ''
     },
+    init: function(){
+        var that = this;
+        $('.classify').on('click','ul li a', function(){
+            var obj = {};
+
+            obj.dataId = this.id;
+            obj.classifiy = $(this).data('classify');
+            obj.classifyText = $(this).parents('dl').find('dt').text().slice(0,2);
+            obj.text = $(this).text();
+
+            that.addClassify(obj);
+        });
+    },
     //*************** 获取  id，name 的值 ***********************
-    getData: function(options){
+    getData: function(option){
         var conf = this.conf;
 
         conf.sID = '';
         conf.sName = '';
         if(typeof options === 'object'){
-            options.each(function(){
-                if($(this).data('id')){
-                    conf.sID = $(this).data('id');
-                } else if($(this).data('name')){
-                    conf.sName = $(this).data('name');
-                }
-            });
+            if(option.data('id')){
+                conf.sID = option.data('id');
+            } else if($(this).data('name')){
+                conf.sName = option.data('name');
+            }
         }
     },
     //************ ajax加载 ********************
@@ -120,11 +133,11 @@ FilterGoods.prototype = {
     },
     //************* 添加过滤条件 ***************
     addClassify: function(obj){
-        var $filerDiv = this.filerDiv,
-            $items = filerDiv.children(),
+        var $filerDiv = $(this.filerDiv),
+            $items = $filerDiv.children(),
             sDom = [                    //添加的DOM
-                '<a data-id="', obj.dataId , '" href="javascript:;">',
-                '<label>', obj.classify ,'：</label>',
+                '<a data-', obj.classifiy, '="', obj.dataId , '" href="javascript:;">',
+                '<label>', obj.classifyText ,'：</label>',
                 '<span>', obj.text ,'</span>',
                 '<span class="del" title="删除">x</span>',
                 '</a>'
@@ -132,11 +145,14 @@ FilterGoods.prototype = {
             flag = true,
             sCal;   //存放过滤的条件， 如 分类 品牌
 
+
+
         $items.each(function(){
             //判断 item 是否存在
             if($(this)){
                 sCal = $items.find('label').text().slice(0,2);
-                if(sCal === obj.classify){
+                console.log(sCal)
+                if(sCal === obj.classifyText){
                     //替换掉筛选的条件
                     $(sDom).replaceAll(this);
                     flag = false;      //用来判断 是替换 还是 添加
@@ -147,8 +163,15 @@ FilterGoods.prototype = {
         if(flag){
             $filerDiv.append(sDom);
         }
+        $filerDiv.show();
         $filerDiv.children().each(function(){
-
+            this.getData($(this));
         });
     }
 };
+var filterGoods = new FilterGoods({
+    putGoodsDiv: '#goods-list',
+    filerDiv: '.filter',
+    pagination: '#pagination',
+    pageNum: '20'
+});
